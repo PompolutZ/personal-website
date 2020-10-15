@@ -1,18 +1,12 @@
 @tailwind base;
-
-/* Write your own custom base styles here */
-
-/* Start purging... */
 @tailwind components;
-/* Stop purging. */
-
-/* Write your own custom component styles here */
-.btn-blue {
-  @apply bg-blue-500 text-white font-bold py-2 px-4 rounded;
-}
-
-/* Start purging... */
 @tailwind utilities;
-/* Stop purging. */
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu+Mono&family=VT323&display=swap");
 
-/* Your own custom utilities */
+html,
+body,
+#__next {
+  width: 100%;
+  height: 100%;
+  font-family: "Ubuntu Mono", monospace;
+}
