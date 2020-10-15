@@ -4,7 +4,11 @@ import GitHub from "../assets/svg/github.svg";
 import Instagram from "../assets/svg/instagram.svg";
 
 const links = [
-  { href: "https://github.com/PompolutZ", label: "GitHub", icon: <GitHub /> },
+  {
+    href: "https://github.com/PompolutZ/personal-website",
+    label: "GitHub",
+    icon: <GitHub />,
+  },
   {
     href: "https://www.linkedin.com/in/olehlutsenko/",
     label: "LinkedIn",
