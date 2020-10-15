@@ -10,6 +10,9 @@ module.exports = {
     extend: {
       colors: {
         "accent-1": "#333",
+        dark: {
+          900: "#1f2325",
+        },
       },
       gridTemplateRows: {
         layout: "1fr auto",

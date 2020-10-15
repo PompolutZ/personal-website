@@ -1,28 +1,33 @@
 import Link from "next/link";
+import LinkedIn from "../assets/svg/linkedin.svg";
+import GitHub from "../assets/svg/github.svg";
+import Instagram from "../assets/svg/instagram.svg";
 
 const links = [
-  { href: "https://github.com/vercel/next.js", label: "GitHub" },
-  { href: "https://nextjs.org/docs", label: "Docs" },
+  { href: "https://github.com/PompolutZ", label: "GitHub", icon: <GitHub /> },
+  {
+    href: "https://www.linkedin.com/in/olehlutsenko/",
+    label: "LinkedIn",
+    icon: <LinkedIn />,
+  },
+  {
+    href: "https://www.instagram.com/amateurlunchpainter/",
+    label: "Instagram",
+    icon: <Instagram />,
+  },
 ];
 
 export default function Nav() {
   return (
     <nav>
-      <ul className="flex justify-between items-center p-8">
-        <li>
-          <Link href="/">
-            <a className="text-blue-500 no-underline">Home</a>
-          </Link>
-        </li>
-        <ul className="flex justify-between items-center space-x-4">
-          {links.map(({ href, label }) => (
-            <li key={`${href}${label}`}>
-              <a href={href} className="btn-blue no-underline">
-                {label}
-              </a>
+      <ul className="flex justify-evenly w-48 p-4">
+        {links.map((link) => (
+          <Link key={link.label} href={link.href}>
+            <li className="cursor-pointer hover:text-purple-500">
+              {link.icon}
             </li>
-          ))}
-        </ul>
+          </Link>
+        ))}
       </ul>
     </nav>
   );
