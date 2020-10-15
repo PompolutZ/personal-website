@@ -1,40 +1,74 @@
-# Tailwind CSS Setup Examples
+# Next.js
 
-A repository of examples showing how to setup Tailwind in a variety of different frameworks and environments.
+To add Tailwind to a Next (^9.2.0) project, start by installing `tailwindcss`, `postcss-import` and `autoprefixer`:
 
-Please note that these examples are for the most part contributed and maintained by the community, and we merge them without a ton of review because it seems more helpful to have *something* than nothing. If you notice any issues or inconsistencies across different examples, we welcome all contributions to improve them.
+```sh
+npm install tailwindcss postcss-import autoprefixer --save
+```
 
-## Available Examples
+Next, set up your PostCSS plugins by creating a `postcss.config.js` file and adding the following configuration:
 
-- [vue-cli](examples/vue-cli)
-- [Nuxt.js](examples/nuxt)
-- [Next.js](examples/nextjs)
-- [Svelte](examples/svelte)
-- [Sapper](examples/sapper)
-- [Laravel](examples/laravel-postcss-only) (PostCSS-only)
-- [Gridsome](examples/gridsome)
-- [Wordpress](examples/wordpress-laravel-mix) (using Laravel Mix)
-- [Statamic v2](examples/statamic-v2-laravel-mix) (using Laravel Mix)
-- [Jekyll](examples/jekyll)
+```js
+module.exports = {
+  plugins: [
+    "postcss-import",
+    "tailwindcss",
+    "autoprefixer"
+  ]
+};
 
-## Contributing
+```
 
-If we're missing you're favorite framework/static site generator/CMS/whatever, we'd love a PR that includes a barebones example of the best way to set up Tailwind in that environment.
+Next, create a CSS file for your Tailwind styles. We've used `css/tailwind.css` for this example:
 
-Try to keep the examples as simple as humanly possible, ideally there would be two commits:
+```css
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+```
 
-1. Initializing the default project, usually using some CLI tool provided by the framework (like `vue create my-project` with vue-cli).
-2. The minimum necessary changes to add Tailwind to the project.
+Finally, import your CSS in your `_app.js` component to make them available globally:
 
-Please include instructions for the setup process as well, so it's easier for others to follow. [Here's an example](examples/vue-cli/README.md).
+```jsx
+import React from 'react'
+import App from 'next/app'
+import '../css/tailwind.css'
 
-Some that we're missing that we'd love to have:
+class MyApp extends App {
+  render() {
+    const { Component, pageProps } = this.props
+    return <Component {...pageProps} />
+  }
+}
 
-- Ember.js
-- Angular
-- Gatsby
-- Rails
-- Django
-- Symfony
-- Craft CMS
-- Drupal
+export default MyApp
+```
+## Setting up Purgecss (optional)
+To add Purgecss, start by installing `@fullhuman/postcss-purgecss`. 
+
+```sh
+npm install @fullhuman/postcss-purgecss --save
+```
+
+Finally, add Purgecss to PostCSS plugins by updating the `postcss.config.js` file and adding the following configuration:
+
+```js
+const purgecss = [
+  "@fullhuman/postcss-purgecss",
+  {
+    content: ["./components/**/*.js", "./pages/**/*.js"],
+    defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || []
+  }
+];
+module.exports = {
+  plugins: [
+    "postcss-import",
+    "tailwindcss",
+    "autoprefixer",
+    ...(process.env.NODE_ENV === "production" ? [purgecss] : [])
+  ]
+};
+
+```
+
+[Learn more about using Purgecss with Tailwind here.](https://tailwindcss.com/docs/controlling-file-size#setting-up-purgecss)
