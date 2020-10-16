@@ -1,4 +1,3 @@
-import Link from "next/link";
 import LinkedIn from "../assets/svg/linkedin.svg";
 import GitHub from "../assets/svg/github.svg";
 import Instagram from "../assets/svg/instagram.svg";
@@ -26,11 +25,14 @@ export default function Nav() {
     <nav>
       <ul className="flex justify-evenly w-48 p-4">
         {links.map((link) => (
-          <Link key={link.label} href={link.href}>
-            <li className="cursor-pointer hover:text-purple-500">
+          <li>
+            <a
+              className="cursor-pointer outline-none hover:text-purple-500 focus:text-purple-300"
+              href={link.href}
+            >
               {link.icon}
-            </li>
-          </Link>
+            </a>
+          </li>
         ))}
       </ul>
     </nav>
