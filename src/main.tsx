@@ -1,13 +1,20 @@
 import "./style.css";
 import { TypewriterEffect } from "./TypewriterEffect";
 
-document.querySelector<HTMLDivElement>("#app")!.innerHTML = `
-  <div class="container">
+function App() {
+  return (
+    <div class="container">
       <div class="prompt" id="typewriter">
-          <span id="typed-text"></span><span class="cursor" id="cursor">&nbsp;</span>
+        <span id="typed-text"></span>
+        <span class="cursor" id="cursor">
+          &nbsp;
+        </span>
       </div>
-  </div>
-`;
+    </div>
+  );
+}
+
+document.querySelector<HTMLDivElement>("#app")!.append(<App />);
 
 // Initialize typewriter effect
 function initTypewriter() {
