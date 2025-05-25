@@ -19,3 +19,10 @@ export function Fragment({ children }: { children: any[] }) {
   return children;
 }
 
+export function renderHtml(
+  element: any,
+  container: Element | DocumentFragment
+): void {
+  container.append(element);
+}
+

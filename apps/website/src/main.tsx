@@ -1,3 +1,4 @@
+import { renderHtml } from "./jsx-runtime";
 import "./style.css";
 import { TypewriterEffect } from "./TypewriterEffect";
 
@@ -16,7 +17,7 @@ function App() {
   );
 }
 
-document.querySelector<HTMLDivElement>("#app")!.append(<App />);
+renderHtml(<App />, document.querySelector("#app")!);
 
 // // Initialize typewriter effect
 function initTypewriter() {
