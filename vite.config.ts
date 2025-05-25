@@ -6,4 +6,10 @@ export default defineConfig({
     jsxFragment: "Fragment",
     jsxInject: `import { createElement, Fragment } from './jsx-runtime.ts';`,
   },
+  build: {
+    minify: true,
+    modulePreload: {
+      polyfill: false,
+    },
+  },
 });

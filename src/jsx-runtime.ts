@@ -18,3 +18,4 @@ export function createElement(tag: any, props: any, ...children: any[]) {
 export function Fragment({ children }: { children: any[] }) {
   return children;
 }
+
