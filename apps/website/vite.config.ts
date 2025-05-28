@@ -43,7 +43,7 @@ export default defineConfig({
     include: /\.(ts|js)$/, // Exclude tsx/jsx files
   },
   build: {
-    minify: false,
+    minify: true,
     modulePreload: {
       polyfill: false,
     },
