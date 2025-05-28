@@ -12,6 +12,19 @@ export default function transformer(): ts.TransformerFactory<ts.SourceFile> {
           return ts.visitEachChild(node, visit, context);
         }
 
+        // Check if this is inside an event handler prop
+        const parent = node.parent;
+        if (ts.isJsxAttribute(parent) && parent.name) {
+          const attributeName = parent.name.getText();
+          // Don't wrap event handlers (they're already functions)
+          if (
+            attributeName.startsWith("on:") ||
+            attributeName.startsWith("on")
+          ) {
+            return ts.visitEachChild(node, visit, context);
+          }
+        }
+
         // Wrap complex expressions in interceptor
         const arrowFunction = ts.factory.createArrowFunction(
           undefined,
