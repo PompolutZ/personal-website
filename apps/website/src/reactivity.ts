@@ -1,5 +1,7 @@
 // Even the simplest implementation of signals and effects in Solid
 // is way more complex than this, but I do not understand why yet.
+
+// Heavily stolen from: https://gist.github.com/1Marc/09e739caa6a82cc176ab4c2abd691814
 type Effect = () => void;
 const context: Effect[] = [];
 
