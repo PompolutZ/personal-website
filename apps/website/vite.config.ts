@@ -1,3 +1,4 @@
+/// <reference types="vitest/config" />
 import { defineConfig } from "vite";
 import * as ts from "typescript";
 import transformer from "./typescript-jsx-transformer";
