@@ -11,9 +11,7 @@ export class TypewriterEffect {
 
   async type() {
     const typedTextElement = document.getElementById("typed-text");
-    const cursor = document.getElementById("cursor");
-
-    if (!typedTextElement || !cursor) {
+    if (!typedTextElement) {
       console.error(
         "Required elements not found in the DOM or developer just an idiot."
       );
@@ -22,10 +20,6 @@ export class TypewriterEffect {
 
     // Start with empty text
     typedTextElement.textContent = "";
-
-    // Show cursor
-    cursor.style.display = "inline-block";
-
     // Type each character
     for (let i = 0; i < this.text.length; i++) {
       await new Promise<void>((resolve) => {
@@ -35,9 +29,6 @@ export class TypewriterEffect {
         }, this.speed + Math.random() * 50); // Add slight randomness for more realistic typing
       });
     }
-
-    // Keep cursor blinking after typing is done
-    cursor.style.animation = "blink 1s infinite";
   }
 
   reset() {
