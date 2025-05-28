@@ -27,5 +27,10 @@
     "jsxFactory": "createElement",
     "jsxFragmentFactory": "Fragment"
   },
-  "include": ["src", "jsx.d.ts", "globals.d.ts"]
+  "include": [
+    "src",
+    "jsx.d.ts",
+    "globals.d.ts",
+    "typescript-jsx-transformer.ts"
+  ]
 }

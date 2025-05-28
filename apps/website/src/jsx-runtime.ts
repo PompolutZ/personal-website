@@ -8,9 +8,13 @@ export function createElement(tag: any, props: any, ...children: any[]) {
     el.setAttribute(key, value);
   }
   for (const child of children.flat()) {
-    el.append(
-      typeof child === "string" ? document.createTextNode(child) : child
-    );
+    if (typeof child === "function") {
+      el.append(child());
+    } else {
+      el.append(
+        typeof child === "string" ? document.createTextNode(child) : child
+      );
+    }
   }
   return el;
 }

@@ -19,7 +19,6 @@ function App() {
 
 renderHtml(<App />, document.querySelector("#app")!);
 
-// // Initialize typewriter effect
 function initTypewriter() {
   const typewriter = new TypewriterEffect(
     "oleh lutsenko",
