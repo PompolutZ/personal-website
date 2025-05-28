@@ -17,8 +17,12 @@ export function createSignal<T>(value: T) {
     return currentValue;
   };
 
-  const write = (newValue: T) => {
-    currentValue = newValue;
+  const write = (newValue: T | ((value: T) => T)) => {
+    if (typeof newValue === "function") {
+      currentValue = (newValue as (value: T) => T)(currentValue);
+    } else {
+      currentValue = newValue;
+    }
     subscriptions.forEach((effect) => effect());
   };
 
@@ -26,7 +30,6 @@ export function createSignal<T>(value: T) {
 }
 
 export function createEffect(fn: Effect) {
-  console.log("Creating effect", fn);
   const execute = () => {
     context.push(execute);
     fn();
