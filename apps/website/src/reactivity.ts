@@ -8,7 +8,6 @@ export function createSignal<T>(value: T) {
   let currentValue = value;
 
   const read = () => {
-    console.log("Context:", context);
     const lastObserver = context[context.length - 1]; // not sure why this should work..
     if (lastObserver) {
       subscriptions.add(lastObserver);
