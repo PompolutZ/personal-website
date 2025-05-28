@@ -1,5 +1,5 @@
 import { expect, test } from "vitest";
-import { createEffect, createSignal } from "./reactivity";
+import { createSignal } from "./reactivity";
 
 test("can create signal and read value", () => {
   const [read] = createSignal(42);
