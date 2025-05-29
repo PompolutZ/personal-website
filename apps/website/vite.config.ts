@@ -2,6 +2,7 @@
 import { defineConfig } from "vite";
 import * as ts from "typescript";
 import transformer from "./typescript-jsx-transformer";
+import { blogPlugin } from "./vite-blog-plugin";
 
 export default defineConfig({
   plugins: [
@@ -37,6 +38,7 @@ export default defineConfig({
         }
       },
     },
+    blogPlugin(), // Custom plugin for handling blog routes
   ],
   // Disable esbuild for JSX files since we're handling them with TypeScript
   esbuild: {
@@ -46,6 +48,15 @@ export default defineConfig({
     minify: true,
     modulePreload: {
       polyfill: false,
+    },
+  },
+  // your existing config
+  server: {
+    // Custom middleware to handle blog routes
+    middlewareMode: false,
+    fs: {
+      // Allow serving files from blog directory
+      allow: [".."],
     },
   },
 });
