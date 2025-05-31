@@ -1,4 +1,5 @@
 /// <reference types="vitest/config" />
+import path from "path";
 import { defineConfig } from "vite";
 import * as ts from "typescript";
 import transformer from "./typescript-jsx-transformer";
@@ -27,9 +28,15 @@ export default defineConfig({
             },
           });
 
+          // Calculate relative path to jsx-runtime from current file
+          const relativePath = path.relative(
+            path.dirname(id),
+            path.resolve("./src/jsx-runtime.ts")
+          );
+
           // Inject imports for transpiled JSX code
           const injectedCode = `
-            import { createElement, Fragment } from './jsx-runtime.ts';
+            import { createElement, Fragment } from './${relativePath}';
             
             ${result.outputText}
           `;

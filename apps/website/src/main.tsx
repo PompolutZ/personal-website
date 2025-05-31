@@ -1,35 +1,16 @@
 import { renderHtml } from "./jsx-runtime";
-import { createSignal } from "./reactivity";
+import { About } from "./pages/About";
+import { Home } from "./pages/Home";
 import "./style.css";
 
 function App() {
-  const text = typeWriterText("oleh lutsenko", 120, 800);
+  const pathname = window.location.pathname;
 
-  return (
-    <div class="container">
-      <div class="prompt" id="typewriter">
-        <span id="typed-text">{text()}</span>
-        <span class="cursor" id="cursor">
-          &nbsp;
-        </span>
-      </div>
-    </div>
-  );
-}
+  if (pathname === "/about") {
+    return <About />;
+  }
 
-function typeWriterText(text: string, speed = 100, delay = 3000) {
-  const [read, write] = createSignal("");
-
-  // Start typing after a short delay
-  setTimeout(() => {
-    for (let i = 0; i < text.length; i++) {
-      setTimeout(() => {
-        write((prev) => prev + text[i]);
-      }, speed * i);
-    }
-  }, delay);
-
-  return read;
+  return <Home />;
 }
 
 renderHtml(<App />, document.querySelector("#app")!);
