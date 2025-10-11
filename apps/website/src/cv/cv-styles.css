@@ -5,6 +5,7 @@
   padding: 2rem;
   background: #fff;
   position: relative;
+  min-height: 100vh;
 }
 
 /* Print Button */
@@ -85,34 +86,38 @@
 /* CV Body */
 .cv-body {
   color: #374151;
-  line-height: 1.7;
+  line-height: 1.6;
 }
 
 .cv-body h2 {
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   color: #111827;
-  margin: 2rem 0 1rem 0;
-  padding-bottom: 0.5rem;
+  margin: 1.5rem 0 0.75rem 0;
+  padding-bottom: 0.25rem;
   border-bottom: 1px solid #e5e7eb;
 }
 
+.cv-body h2:first-child {
+  margin-top: 0;
+}
+
 .cv-body h3 {
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   color: #1f2937;
-  margin: 1.5rem 0 0.5rem 0;
+  margin: 1rem 0 0.25rem 0;
 }
 
 .cv-body p {
-  margin: 0.75rem 0;
+  margin: 0.5rem 0;
 }
 
 .cv-body ul {
-  margin: 0.5rem 0;
+  margin: 0.25rem 0 0.75rem 0;
   padding-left: 1.5rem;
 }
 
 .cv-body li {
-  margin: 0.5rem 0;
+  margin: 0.35rem 0;
 }
 
 .cv-body strong {
@@ -150,10 +155,25 @@
     display: none !important;
   }
 
-  /* Reset page margins */
+  /* Hide the clickable links section in print - they don't make sense on paper */
+  .cv-links {
+    display: none !important;
+  }
+
+  /* Reset page margins and remove browser-added headers/footers */
   @page {
-    margin: 1.5cm;
+    margin: 1.5cm 2cm;
     size: A4;
+  }
+
+  /* Hide browser's default header/footer (date, URL, page numbers) */
+  html {
+    margin: 0;
+  }
+
+  /* Reset body */
+  body {
+    background: white !important;
   }
 
   /* Container adjustments for print */
@@ -162,67 +182,83 @@
     padding: 0;
     margin: 0;
     background: white;
+    min-height: auto;
   }
 
-  /* Typography adjustments for print */
+  /* Header adjustments */
+  .cv-header {
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+  }
+
   .cv-header h1 {
-    font-size: 2rem;
+    font-size: 1.75rem;
     margin-bottom: 0.25rem;
   }
 
   .cv-title {
-    font-size: 1.1rem;
+    font-size: 1rem;
     margin-bottom: 0.5rem;
   }
 
   .cv-contact {
-    font-size: 0.9rem;
-    gap: 1rem;
+    font-size: 0.85rem;
+    gap: 0.75rem;
     margin-bottom: 0.5rem;
   }
 
   .cv-links {
-    font-size: 0.85rem;
-    gap: 1rem;
+    font-size: 0.8rem;
+    gap: 0.75rem;
   }
 
+  /* Body adjustments */
   .cv-body {
-    font-size: 11pt;
-    line-height: 1.5;
+    font-size: 10pt;
+    line-height: 1.4;
   }
 
   .cv-body h2 {
-    font-size: 1.4rem;
-    margin-top: 1.5rem;
-    margin-bottom: 0.75rem;
+    font-size: 1.25rem;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
     page-break-after: avoid;
+    padding-bottom: 0.15rem;
+  }
+
+  .cv-body h2:first-child {
+    margin-top: 0;
   }
 
   .cv-body h3 {
-    font-size: 1.1rem;
-    margin-top: 1rem;
-    margin-bottom: 0.5rem;
+    font-size: 1rem;
+    margin-top: 0.75rem;
+    margin-bottom: 0.15rem;
     page-break-after: avoid;
   }
 
   .cv-body p,
   .cv-body ul {
-    margin: 0.5rem 0;
+    margin: 0.35rem 0;
+  }
+
+  .cv-body li {
+    margin: 0.15rem 0;
   }
 
   /* Ensure links are visible in print */
   .cv-links a,
   .cv-body a {
     color: #000;
-    text-decoration: underline;
+    text-decoration: none;
   }
 
-  /* Print link URLs after the text */
-  .cv-links a::after,
+  /* Print link URLs after the text - only for external links in Projects */
   .cv-body a[href^="http"]::after {
     content: " (" attr(href) ")";
-    font-size: 0.8em;
+    font-size: 0.75em;
     color: #666;
+    word-break: break-all;
   }
 
   /* Prevent awkward page breaks */
@@ -232,23 +268,14 @@
     page-break-inside: avoid;
   }
 
-  .cv-body ul,
-  .cv-body p {
-    page-break-inside: avoid;
-    orphans: 3;
-    widows: 3;
+  .cv-body h3 + p,
+  .cv-body h3 + ul {
+    page-break-before: avoid;
   }
 
   /* Keep header with following content */
   .cv-header {
     page-break-after: avoid;
-    margin-bottom: 1rem;
-    padding-bottom: 1rem;
-  }
-
-  /* Optimize spacing for print */
-  .cv-body li {
-    margin: 0.25rem 0;
   }
 
   /* Remove backgrounds and shadows */
@@ -270,11 +297,11 @@
 
   /* Border adjustments for print */
   .cv-header {
-    border-bottom-color: #000;
+    border-bottom-color: #333;
   }
 
   .cv-body h2 {
-    border-bottom-color: #000;
+    border-bottom-color: #666;
   }
 }
 

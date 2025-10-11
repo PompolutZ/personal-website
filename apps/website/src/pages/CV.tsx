@@ -1,4 +1,4 @@
-import { createSignal } from "../reactivity";
+import { createSignal, createEffect } from "../reactivity";
 
 interface CVMeta {
   name: string;
@@ -21,20 +21,33 @@ export function CV() {
   const [cvData, setCVData] = createSignal<CVData | null>(null);
   const [loading, setLoading] = createSignal(true);
 
+  // Add CV page class to body
+  createEffect(() => {
+    document.body.classList.add('cv-page');
+    document.body.classList.remove('home-page');
+    
+    return () => {
+      document.body.classList.remove('cv-page');
+    };
+  });
+
   // Load CV data on mount
-  (async () => {
-    try {
-      const response = await fetch("/cv/cv.json");
-      const data = await response.json();
-      setCVData(data);
-    } catch (error) {
-      console.error("Failed to load CV:", error);
-    } finally {
-      setLoading(false);
-    }
-  })();
+  createEffect(() => {
+    (async () => {
+      try {
+        const response = await fetch("/cv/cv.json");
+        const data = await response.json();
+        setCVData(data);
+      } catch (error) {
+        console.error("Failed to load CV:", error);
+      } finally {
+        setLoading(false);
+      }
+    })();
+  });
 
   const handlePrint = () => {
+    console.log("Print button clicked");
     window.print();
   };
 
@@ -49,9 +62,11 @@ export function CV() {
       return <div class="cv-error">Failed to load CV</div>;
     }
 
+    console.log("CV data:", cv.meta);
+
     return (
       <div class="cv-container">
-        <button class="print-button no-print" onClick={handlePrint}>
+        <button class="print-button no-print" onClick={() => handlePrint()}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="20"
@@ -106,5 +121,5 @@ export function CV() {
     );
   };
 
-  return <div>{renderContent}</div>;
+  return <div>{renderContent()}</div>;
 }

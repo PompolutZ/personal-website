@@ -7,14 +7,45 @@ export function createElement(tag: any, props: any, ...children: any[]) {
 
   const el = document.createElement(tag);
   for (const [key, value] of Object.entries(props || {})) {
+    // Handle on:eventname syntax
     if (key.startsWith("on:") && typeof value === "function") {
       const eventName = key.split(":")[1];
-
       el.addEventListener(eventName, value);
       continue;
     }
 
-    el.setAttribute(key, value);
+    // Handle onClick, onInput, etc. syntax
+    if (key.startsWith("on") && key.length > 2 && typeof value === "function") {
+      const eventName = key.slice(2).toLowerCase();
+      el.addEventListener(eventName, value);
+      continue;
+    }
+
+    // Handle innerHTML
+    if (key === "innerHTML") {
+      if (typeof value === "function") {
+        createEffect(() => {
+          el.innerHTML = value();
+        });
+      } else {
+        el.innerHTML = value;
+      }
+      continue;
+    }
+
+    // Skip null/undefined values
+    if (value == null) {
+      continue;
+    }
+
+    // Handle regular attributes
+    if (typeof value === "function") {
+      createEffect(() => {
+        el.setAttribute(key, value());
+      });
+    } else {
+      el.setAttribute(key, value);
+    }
   }
 
   for (const child of children.flat()) {

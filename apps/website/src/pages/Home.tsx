@@ -1,6 +1,17 @@
 import { typeWriterText } from "../utils";
+import { createEffect } from "../reactivity";
 
 export function Home() {
+  // Add home page class to body
+  createEffect(() => {
+    document.body.classList.add('home-page');
+    document.body.classList.remove('cv-page');
+    
+    return () => {
+      document.body.classList.remove('home-page');
+    };
+  });
+
   const text = typeWriterText("oleh lutsenko", 120, 800);
   return (
     <div class="container">
