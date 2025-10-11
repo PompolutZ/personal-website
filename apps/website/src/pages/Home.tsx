@@ -16,6 +16,9 @@ export function Home() {
           <li>
             <a href="/about">About</a>
           </li>
+          <li>
+            <a href="/cv">CV</a>
+          </li>
         </ul>
       </nav>
     </div>

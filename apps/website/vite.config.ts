@@ -4,6 +4,7 @@ import { defineConfig } from "vite";
 import * as ts from "typescript";
 import transformer from "./typescript-jsx-transformer";
 import { blogPlugin } from "./vite-blog-plugin";
+import { cvPlugin } from "./vite-cv-plugin";
 
 export default defineConfig({
   plugins: [
@@ -46,6 +47,7 @@ export default defineConfig({
       },
     },
     blogPlugin(), // Custom plugin for handling blog routes
+    cvPlugin(), // Custom plugin for handling CV routes
   ],
   // Disable esbuild for JSX files since we're handling them with TypeScript
   esbuild: {

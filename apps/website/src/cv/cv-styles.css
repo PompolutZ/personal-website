@@ -1,0 +1,310 @@
+/* CV Container */
+.cv-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: #fff;
+  position: relative;
+}
+
+/* Print Button */
+.print-button {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+  z-index: 100;
+}
+
+.print-button:hover {
+  background: #1d4ed8;
+}
+
+.print-button svg {
+  flex-shrink: 0;
+}
+
+/* CV Header */
+.cv-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.cv-header h1 {
+  font-size: 2.5rem;
+  margin: 0 0 0.5rem 0;
+  color: #111827;
+}
+
+.cv-title {
+  font-size: 1.25rem;
+  color: #6b7280;
+  margin: 0 0 1rem 0;
+}
+
+.cv-contact {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  font-size: 0.95rem;
+  color: #4b5563;
+  margin-bottom: 1rem;
+}
+
+.cv-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.cv-links a {
+  color: #2563eb;
+  text-decoration: none;
+  font-size: 0.95rem;
+}
+
+.cv-links a:hover {
+  text-decoration: underline;
+}
+
+/* CV Body */
+.cv-body {
+  color: #374151;
+  line-height: 1.7;
+}
+
+.cv-body h2 {
+  font-size: 1.75rem;
+  color: #111827;
+  margin: 2rem 0 1rem 0;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.cv-body h3 {
+  font-size: 1.25rem;
+  color: #1f2937;
+  margin: 1.5rem 0 0.5rem 0;
+}
+
+.cv-body p {
+  margin: 0.75rem 0;
+}
+
+.cv-body ul {
+  margin: 0.5rem 0;
+  padding-left: 1.5rem;
+}
+
+.cv-body li {
+  margin: 0.5rem 0;
+}
+
+.cv-body strong {
+  color: #1f2937;
+  font-weight: 600;
+}
+
+.cv-body a {
+  color: #2563eb;
+  text-decoration: none;
+}
+
+.cv-body a:hover {
+  text-decoration: underline;
+}
+
+/* Loading and Error States */
+.cv-loading,
+.cv-error {
+  text-align: center;
+  padding: 3rem;
+  font-size: 1.25rem;
+  color: #6b7280;
+}
+
+.cv-error {
+  color: #dc2626;
+}
+
+/* Print Styles */
+@media print {
+  /* Hide elements not needed in print */
+  .print-button,
+  .no-print {
+    display: none !important;
+  }
+
+  /* Reset page margins */
+  @page {
+    margin: 1.5cm;
+    size: A4;
+  }
+
+  /* Container adjustments for print */
+  .cv-container {
+    max-width: 100%;
+    padding: 0;
+    margin: 0;
+    background: white;
+  }
+
+  /* Typography adjustments for print */
+  .cv-header h1 {
+    font-size: 2rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .cv-title {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .cv-contact {
+    font-size: 0.9rem;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .cv-links {
+    font-size: 0.85rem;
+    gap: 1rem;
+  }
+
+  .cv-body {
+    font-size: 11pt;
+    line-height: 1.5;
+  }
+
+  .cv-body h2 {
+    font-size: 1.4rem;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    page-break-after: avoid;
+  }
+
+  .cv-body h3 {
+    font-size: 1.1rem;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    page-break-after: avoid;
+  }
+
+  .cv-body p,
+  .cv-body ul {
+    margin: 0.5rem 0;
+  }
+
+  /* Ensure links are visible in print */
+  .cv-links a,
+  .cv-body a {
+    color: #000;
+    text-decoration: underline;
+  }
+
+  /* Print link URLs after the text */
+  .cv-links a::after,
+  .cv-body a[href^="http"]::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+    color: #666;
+  }
+
+  /* Prevent awkward page breaks */
+  .cv-header,
+  .cv-body h2,
+  .cv-body h3 {
+    page-break-inside: avoid;
+  }
+
+  .cv-body ul,
+  .cv-body p {
+    page-break-inside: avoid;
+    orphans: 3;
+    widows: 3;
+  }
+
+  /* Keep header with following content */
+  .cv-header {
+    page-break-after: avoid;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  /* Optimize spacing for print */
+  .cv-body li {
+    margin: 0.25rem 0;
+  }
+
+  /* Remove backgrounds and shadows */
+  * {
+    background: transparent !important;
+    box-shadow: none !important;
+  }
+
+  /* Ensure black text for better print contrast */
+  .cv-body {
+    color: #000;
+  }
+
+  .cv-body h2,
+  .cv-body h3,
+  .cv-body strong {
+    color: #000;
+  }
+
+  /* Border adjustments for print */
+  .cv-header {
+    border-bottom-color: #000;
+  }
+
+  .cv-body h2 {
+    border-bottom-color: #000;
+  }
+}
+
+/* Responsive Design for smaller screens */
+@media screen and (max-width: 768px) {
+  .cv-container {
+    padding: 1rem;
+  }
+
+  .print-button {
+    position: static;
+    width: 100%;
+    margin-bottom: 1rem;
+    justify-content: center;
+  }
+
+  .cv-header h1 {
+    font-size: 2rem;
+  }
+
+  .cv-contact {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .cv-body h2 {
+    font-size: 1.5rem;
+  }
+
+  .cv-body h3 {
+    font-size: 1.1rem;
+  }
+}
