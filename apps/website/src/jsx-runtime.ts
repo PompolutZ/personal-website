@@ -14,13 +14,6 @@ export function createElement(tag: any, props: any, ...children: any[]) {
       continue;
     }
 
-    // Handle onClick, onInput, etc. syntax
-    if (key.startsWith("on") && key.length > 2 && typeof value === "function") {
-      const eventName = key.slice(2).toLowerCase();
-      el.addEventListener(eventName, value);
-      continue;
-    }
-
     // Handle innerHTML
     if (key === "innerHTML") {
       if (typeof value === "function") {

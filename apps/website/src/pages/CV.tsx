@@ -66,7 +66,7 @@ export function CV() {
 
     return (
       <div class="cv-container">
-        <button class="print-button no-print" onClick={() => handlePrint()}>
+        <button class="print-button no-print" on:click={handlePrint}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="20"
