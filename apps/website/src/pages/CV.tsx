@@ -47,7 +47,6 @@ export function CV() {
   });
 
   const handlePrint = () => {
-    console.log("Print button clicked");
     window.print();
   };
 
@@ -61,8 +60,6 @@ export function CV() {
     if (!cv) {
       return <div class="cv-error">Failed to load CV</div>;
     }
-
-    console.log("CV data:", cv.meta);
 
     return (
       <div class="cv-container">
