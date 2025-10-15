@@ -5,27 +5,27 @@ email: oleh.lutsenko@gmail.com
 phone: +46709161696
 location: Stockholm
 linkedin: https://www.linkedin.com/in/olehlutsenko
-website: https://olehlutsenko.com/
+github: https://github.com/PompolutZ
 youtube: https://www.youtube.com/@LifeLoveAndMonads
 ---
 
 ## Summary
 
-I'm passionate about programming and building interesting, maintainable products. I enjoy taking ideas from a napkin sketch to the end user. I've been doing this professionally for almost 15 years and am confident in getting products across the finish line.
+I'm passionate about programming and building interesting, maintainable products. I enjoy taking ideas from a napkin sketch to the end user. With 15+ years of professional experience, I thrive on turning complex challenges into polished, user-centric solutions.
 
 ## Experience
 
 ### Mindler AB, Stockholm
 **Senior Software Developer** | 08/2021 - Present
 
-- Full-stack developer on a product with two main apps — a `React` web app and a `React Native` mobile app — powered by 30+ microservices and a monolith on `AWS`, using `MySQL`, `DynamoDB`, and `PostgreSQL`.  
+- Full-stack developer on a product with two main apps — a `React` web app and a `React Native` mobile app — powered by 30+ `REST` and `RPC` `microservices` and a monolith on `AWS`, using `MySQL`, `DynamoDB`, and `PostgreSQL`.  
 - Led multiple initiatives, e.g., developed a custom authentication library supporting Mobile `BankID`, `Cognito`, `Passkeys`, etc., used across all apps as a single source of truth. Standardized `ESLint` and `Prettier` setups company-wide to enforce common styles and improve maintainability.  
 - Actively contributing to internal engineering discussions and RFCs, and mentoring junior developers.
 
 ### Silobreaker, Stockholm
 **Full Stack Developer** | 06/2020 - 06/2021
 
-- Full-stack developer mainly on the `Angular` frontend, building intuitive interfaces for a cybersecurity and risk analytics product with a monolith (on-premise) and a few `AWS` microservices.  
+- Worked mostly with the `Angular` frontend, building intuitive interfaces for a cybersecurity and risk analytics product with a monolith (on-premise) and a few `AWS` microservices.  
 - Recognized for providing constructive input on technical and product decisions, helping teams converge on better solutions.
 
 ### Tobii AB, Stockholm
@@ -35,7 +35,7 @@ I'm passionate about programming and building interesting, maintainable products
 - Member of the SDK team, developing a reactive library to simplify eye-tracking integration.  
 - Built several web products using `Angular`, `React`, `jQuery`, and `Django`.
 
-### Other companies in Kyiv
+### Earlier Experience in Kuadriga, Ciklum, GlobalLogic, Kyiv
 **Software Developer** | 11/2008 - 01/2011
 
 - Built web products using `ASP.NET`, `MySQL`, and `jQuery`. Also worked on `Silverlight` web apps and `WPF` desktop apps.
@@ -49,7 +49,7 @@ NodeJS, TypeScript, React, .NET, AWS, Angular, JavaScript, C#, Azure, Firebase, 
 ### Redis in Go
 [https://github.com/PompolutZ/codecrafters-redis-go](https://github.com/PompolutZ/codecrafters-redis-go)
 
-A couple of days of vacation spent well. Written in `Go`.
+A couple of vacation days spent well with `Go`.
 
 ### olehlutsenko.com
 [https://github.com/PompolutZ/personal-website](https://github.com/PompolutZ/personal-website)
@@ -59,7 +59,7 @@ Personal website built with a custom `JavaScript` framework inspired by `Solid`.
 ### https://wunderworlds.club/
 [https://github.com/PompolutZ/wuclub_monorepo](https://github.com/PompolutZ/wuclub_monorepo)
 
-A deck-building product for a board game, hosting over 12,000 decks from more than 1,800 users. Originally built with `React`, `MongoDB`, and `Firebase` (`Firestore` and Realtime DB), now powered by `Hono` running on `AWS` `Lambdas`.
+A deck-building product for a board game, hosting over 12,000 decks from more than 1,800 users. Originally built with `React`, `MongoDB`, and `Firebase` (`Firestore` and `Realtime DB`), now powered by `Hono` running on `AWS Lambdas`.
 
 ## In my free time
 

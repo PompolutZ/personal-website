@@ -7,7 +7,7 @@ interface CVMeta {
   phone: string;
   location: string;
   linkedin?: string;
-  website?: string;
+  github?: string;
   youtube?: string;
 }
 
@@ -91,16 +91,16 @@ export function CV() {
               <span>{cv.meta.phone}</span>
               <span>{cv.meta.location}</span>
             </div>
-            {(cv.meta.linkedin || cv.meta.website || cv.meta.youtube) && (
+            {(cv.meta.linkedin || cv.meta.github || cv.meta.youtube) && (
               <div class="cv-links">
                 {cv.meta.linkedin && (
                   <a href={cv.meta.linkedin} target="_blank" rel="noopener">
                     LinkedIn
                   </a>
                 )}
-                {cv.meta.website && (
-                  <a href={cv.meta.website} target="_blank" rel="noopener">
-                    Website
+                {cv.meta.github && (
+                  <a href={cv.meta.github} target="_blank" rel="noopener">
+                    GitHub
                   </a>
                 )}
                 {cv.meta.youtube && (
