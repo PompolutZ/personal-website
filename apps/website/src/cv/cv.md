@@ -20,7 +20,7 @@ I'm passionate about programming and building interesting, maintainable products
 
 - Full-stack developer on a product with two main apps — a `React` web app and a `React Native` mobile app — powered by 30+ `REST` and `RPC` `microservices` and a monolith on `AWS`, using `MySQL`, `DynamoDB`, and `PostgreSQL`.  
 - Led multiple initiatives, e.g., developed a custom authentication library supporting Mobile `BankID`, `Cognito`, `Passkeys`, etc., used across all apps as a single source of truth. Standardized `ESLint` and `Prettier` setups company-wide to enforce common styles and improve maintainability.  
-- Actively contributing to internal engineering discussions and RFCs, and mentoring junior developers.
+- Actively contributing to internal engineering discussions and RFCs, mentoring junior colleagues.
 
 ### Silobreaker, Stockholm
 **Full Stack Developer** | 06/2020 - 06/2021
@@ -35,7 +35,7 @@ I'm passionate about programming and building interesting, maintainable products
 - Member of the SDK team, developing a reactive library to simplify eye-tracking integration.  
 - Built several web products using `Angular`, `React`, `jQuery`, and `Django`.
 
-### Earlier Experience in Kuadriga, Ciklum, GlobalLogic, Kyiv
+### Earlier Experience in Kyiv - Kuadriga, Ciklum, GlobalLogic
 **Software Developer** | 11/2008 - 01/2011
 
 - Built web products using `ASP.NET`, `MySQL`, and `jQuery`. Also worked on `Silverlight` web apps and `WPF` desktop apps.
