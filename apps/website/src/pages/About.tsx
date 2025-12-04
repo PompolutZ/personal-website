@@ -17,5 +17,18 @@ export function About() {
   });
 
   const about = typeWriterText(aboutText, 30, 300);
-  return <div>{about()}</div>;
+  return (
+    <div class="about-content">
+      <div>{about()}</div>
+      <div class="container">
+        <nav>
+          <ul>
+            <li>
+              <a href="/">Home</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  );
 }
