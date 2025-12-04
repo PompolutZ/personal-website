@@ -1,16 +1,21 @@
 import { createSignal } from "./reactivity";
 
-export function typeWriterText(text: string, speed = 100, delay = 3000) {
+export function typeWriterText(text: string, speed = 50, delay = 500) {
   const [read, write] = createSignal("");
 
-  // Start typing after a short delay
-  setTimeout(() => {
-    for (let i = 0; i < text.length; i++) {
-      setTimeout(() => {
-        write((prev) => prev + text[i]);
-      }, speed * i);
+  let currentIndex = 0;
+  let timeoutId: NodeJS.Timeout;
+
+  const typeNextChar = () => {
+    if (currentIndex < text.length) {
+      write((prev) => prev + text[currentIndex]);
+      currentIndex++;
+      timeoutId = setTimeout(typeNextChar, speed);
     }
-  }, delay);
+  };
+
+  // Start typing after initial delay
+  setTimeout(typeNextChar, delay);
 
   return read;
 }

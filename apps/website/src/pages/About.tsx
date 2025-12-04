@@ -16,6 +16,6 @@ export function About() {
     };
   });
 
-  const about = typeWriterText(aboutText, 150, 800);
+  const about = typeWriterText(aboutText, 30, 300);
   return <div>{about()}</div>;
 }
